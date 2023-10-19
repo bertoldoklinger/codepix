@@ -20,6 +20,8 @@ require (
 	gorm.io/driver/sqlite v1.5.4
 )
 
+require github.com/spf13/cobra-cli v1.3.0 // indirect
+
 require (
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
