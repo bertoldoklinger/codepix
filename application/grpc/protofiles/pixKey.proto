@@ -3,7 +3,7 @@ syntax="proto3";
 package github.com.bertoldoklinger.codepix;
 
 // gera um namespace pb(protocol buffers) pro go compilar o proto
-option go_package = "protofiles;pb";
+option go_package = "protofiles/pb";
 
 //Padrao de mensagem que alguem vai enviar pra gente falando que ele quer registrar uma mensagem
 message PixKeyRegistration {
