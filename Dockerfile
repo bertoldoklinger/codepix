@@ -1,4 +1,4 @@
-FROM golang:1.21.3
+FROM golang:1.20
 
 WORKDIR /go/src
 ENV PATH="/go/bin:${PATH}"
@@ -10,7 +10,7 @@ RUN apt-get update && \
     go mod init github.com/bertoldoklinger/codepix && \
     go get google.golang.org/grpc/cmd/protoc-gen-go-grpc && \
     go get google.golang.org/protobuf/cmd/protoc-gen-go && \
-    go install github.com/spf13/cobra-cli@v1.3.0 && \
+    go install github.com/spf13/cobra-cli@latest && \
     go get github.com/spf13/cobra && \
     wget https://github.com/ktr0731/evans/releases/download/0.10.0/evans_linux_amd64.tar.gz && \
     tar -xzvf evans_linux_amd64.tar.gz && \
