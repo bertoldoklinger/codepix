@@ -1,3 +1,22 @@
+## Como rodar o projeto
+
+### Como rodar os serviços gRPC e Kafka
+
+```
+docker compose up -d
+```
+```
+docker exec -it codepix-app-1 bash 
+```
+```
+cd codepix-go
+```
+```
+go run main.go all
+```
+
+
+
 ## 2 Pilares de um Full Cycle Developer
 - Operate what you build 
 	- O Desenvolvedor fica responsável desde a concepção até o deploy do projeto.
