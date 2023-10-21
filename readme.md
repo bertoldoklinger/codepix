@@ -48,12 +48,12 @@ Fluxo básico de trabalho
 - Recebe a confirmação do banco de origem de que ele processou (Status: "completed")
 - Marca a transação como completa.(Status: "completed")
 ### Cadastro e consulta de chave Pix
-![Cadastro e consulta de chave Pix](./documentation/Pasted%20image%2020231016103143.png)
+![Cadastro e consulta de chave Pix](./documentation/aula1/Pasted%20image%2020231016103143.png)
 - O CodePix precisa armazenar TODAS as chaves pix
 - Cada banco precisa armazenar apenas suas chaves pix
 
 ### Dinâmica do processo
-![Dinâmica do processo](./documentation/Pasted%20image%2020231016104330.png)
+![Dinâmica do processo](./documentation/aula1/Pasted%20image%2020231016104330.png)
 
 ### Principais desafios
 - Comunicação rápida e eficiente(REST não é a opção mais rápida)
@@ -84,17 +84,17 @@ Fluxo básico de trabalho
 - Muito conhecido por ser um dos assinantes do Manifesto Agile
 - Ports and Adapters - 2005
 - Temos a aplicação no meio e adaptadores em volta da aplicação que conseguem se comunicar com ela
- ![Arquitetura Hexagonal](./documentation/Pasted%20image%2020231016111022.png)
+ ![Arquitetura Hexagonal](./documentation/aula1/Pasted%20image%2020231016111022.png)
 ### Onion Architecture
 - Criada por Jeffrey Palermo em 2008
 - Ports and Adapters mais detalhada
-  ![Onion Architecture](./documentation/Pasted%20image%2020231016111811.png)
+  ![Onion Architecture](./documentation/aula1/Pasted%20image%2020231016111811.png)
 ## Clean Architecture
 - Criada por Robert C. Martin aka Uncle Bob, também criador do SOLID
 - Famoso pelo conceito de Clean Code
-  ![Clean Architecture](./documentation/Pasted%20image%2020231016112154.png)
+  ![Clean Architecture](./documentation/aula1/Pasted%20image%2020231016112154.png)
 ## Estrutura e camadas do CodePix
-  ![Estrutura e camadas do CodePix](./documentation/Pasted%20image%2020231016114129.png)
+  ![Estrutura e camadas do CodePix](./documentation/aula1/Pasted%20image%2020231016114129.png)
 
 ## Recursos a serem utilizados
 - Docker
