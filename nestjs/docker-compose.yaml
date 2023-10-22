@@ -13,4 +13,5 @@ services:
     image: postgres:13-alpine
     environment:
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: nest
+    volumes:
+      - .docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql

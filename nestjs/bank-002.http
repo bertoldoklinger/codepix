@@ -1,0 +1,55 @@
+###
+GET http://localhost:3001/bank-accounts
+
+###
+@bankAccountId1 = e57cd9cf-4e34-4587-8d65-892ee92476b2
+
+###
+GET http://localhost:3001/bank-accounts/{{bankAccountId1}}
+
+### Create a new bank account
+POST http://localhost:3001/bank-accounts
+Content-Type: application/json
+
+{
+    "account_number": "1111",
+    "owner_name": "John Doe"
+}
+
+
+
+### Create a new pix key for bank account 1
+POST http://localhost:3001/bank-accounts/{{bankAccountId1}}/pix-keys
+Content-Type: application/json
+
+{
+    "kind": "cpf",
+    "key": "3"
+}
+
+###
+@bankAccountId2 = 49060c7e-c640-4b9d-af32-9e09e55dc2d6
+
+#### Create a new pix key for bank account 2
+POST http://localhost:3001/bank-accounts/{{bankAccountId2}}/pix-keys
+Content-Type: application/json
+
+{
+    "kind": "cpf",
+    "key": "4"
+}
+
+
+###
+GET http://localhost:3001/bank-accounts/{{bankAccountId1}}/transactions
+
+### Create a new transaction
+POST http://localhost:3001/bank-accounts/{{bankAccountId1}}/transactions
+Content-Type: application/json
+
+{
+    "pix_key_key": "1",
+    "pix_key_kind": "cpf",
+    "description": "My transaction",
+    "amount": 10.00
+}
