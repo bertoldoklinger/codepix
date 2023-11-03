@@ -5,15 +5,12 @@ package github.com.bertoldoklinger.codepix;
 // gera um namespace pb(protocol buffers) pro go compilar o proto
 option go_package = "protofiles/pb";
 
-//Padrao de mensagem que alguem vai enviar pra gente falando que ele quer registrar uma mensagem
 message PixKeyRegistration {
   string kind = 1;
   string key = 2;
   string accountId = 3;
 }
 
-
-//mensagem que vai enviar o pix 
 message PixKey {
   string kind = 1;
   string key = 2;
@@ -28,7 +25,6 @@ message Account {
   string createdAt = 6;
 }
 
-// podemos coloca uma message como um tipo que iremos utilizar, no caso Account
 message PixKeyInfo {
   string id = 1;
   string kind = 2;
@@ -47,4 +43,3 @@ service PixService {
   rpc RegisterPixKey (PixKeyRegistration) returns (PixKeyCreatedResult) {};
   rpc Find(PixKey) returns (PixKeyInfo) {};
 }
-

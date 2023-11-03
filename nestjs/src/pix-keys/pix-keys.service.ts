@@ -1,10 +1,11 @@
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
+import { CreatePixKeyDto } from './dto/create-pix-key.dto';
+//import { UpdatePixKeyDto } from './dto/update-pix-key.dto';
 import { ClientGrpc } from '@nestjs/microservices';
 import { InjectRepository } from '@nestjs/typeorm';
 import { lastValueFrom } from 'rxjs';
-import { BankAccount } from 'src/bank-accounts/entities/bank-account.entity';
 import { Repository } from 'typeorm';
-import { CreatePixKeyDto } from './dto/create-pix-key.dto';
+import { BankAccount } from '../bank-accounts/entities/bank-account.entity';
 import { PixKey, PixKeyKind } from './entities/pix-key.entity';
 import { PixKeyClientGrpc, RegisterPixKeyRpcResponse } from './pix-keys.grpc';
 
@@ -25,11 +26,11 @@ export class PixKeysService implements OnModuleInit {
   }
 
   async create(bankAccountId: string, createPixKeyDto: CreatePixKeyDto) {
-    await this.bankAccountRepo.findOneOrFail({ where: { id: bankAccountId } });
+    await this.bankAccountRepo.findOneOrFail({
+      where: { id: bankAccountId },
+    });
 
-    //logica para consultar se a chave pix existe no banco central (grpc)
     const remotePixKey = await this.findRemotePixKey(createPixKeyDto);
-
     if (remotePixKey) {
       return this.createIfNotExists(bankAccountId, remotePixKey);
     } else {
@@ -39,6 +40,7 @@ export class PixKeysService implements OnModuleInit {
           accountId: bankAccountId,
         }),
       );
+      //se já existe local, atualiza
       return this.pixKeyRepo.save({
         id: createdRemotePixKey.id,
         bank_account_id: bankAccountId,
@@ -58,8 +60,9 @@ export class PixKeysService implements OnModuleInit {
       if (e.details == 'no key was found') {
         return null;
       }
+
+      throw new PixKeyGrpcUnknownError('Grpc Internal Error');
     }
-    throw new PixKeyGrpcUnknownError('Grpc Internal Error');
   }
 
   private async createIfNotExists(
@@ -72,7 +75,7 @@ export class PixKeysService implements OnModuleInit {
       },
     });
     if (hasLocalPixKey) {
-      throw new PixKeyAlreadyExistsError('Pix already exists');
+      throw new PixKeyAlreadyExistsError('Pix Key already exists');
     } else {
       return this.pixKeyRepo.save({
         id: remotePixKey.id,
@@ -85,9 +88,7 @@ export class PixKeysService implements OnModuleInit {
 
   findAll(bankAccountId: string) {
     return this.pixKeyRepo.find({
-      where: {
-        bank_account_id: bankAccountId,
-      },
+      where: { bank_account_id: bankAccountId },
       order: { created_at: 'DESC' },
     });
   }

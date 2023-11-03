@@ -1,4 +1,5 @@
 
+import { Navbar } from '@/components/Navbar/Navbar';
 import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry';
 import Box from '@mui/material/Box';
 
@@ -14,6 +15,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <html lang="en">
       <body>
         <ThemeRegistry>
+          <Navbar />
           <Box
             component="main"
             sx={{

@@ -2,7 +2,7 @@
 GET http://localhost:3000/bank-accounts
 
 ###
-@bankAccountId1 = e57cd9cf-4e34-4587-8d65-892ee92476b2
+@bankAccountId1 = 6e4635ce-88d1-4e58-9597-d13fc446ee47
 
 ###
 GET http://localhost:3000/bank-accounts/{{bankAccountId1}}
@@ -26,11 +26,11 @@ Content-Type: application/json
 
 {
     "kind": "cpf",
-    "key": "1"
+    "key": "05412792383"
 }
 
 ###
-@bankAccountId2 = 49060c7e-c640-4b9d-af32-9e09e55dc2d6
+@bankAccountId2 = 51a720b2-5144-4d7f-921d-57023b1e24c1
 
 ###
 GET http://localhost:3000/bank-accounts/{{bankAccountId2}}
@@ -58,5 +58,5 @@ Content-Type: application/json
     "pix_key_key": "3",
     "pix_key_kind": "cpf",
     "description": "My transaction",
-    "amount": 10.00
+    "amount": "10"
 }

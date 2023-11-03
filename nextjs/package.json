@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "001:dev": "NEXT_PUBLIC_BANK_CODE=001 NEXT_PUBLIC_BANK_NAME=BBX NEXT_PUBLIC_NEST_API_URL=http://host.docker.internal:3000 next dev -p 3000",
+    "002:dev": "NEXT_PUBLIC_BANK_CODE=002 NEXT_PUBLIC_BANK_NAME=CTER NEXT_PUBLIC_NEST_API_URL=http://host.docker.internal:3001 next dev -p 3001"
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",
@@ -14,6 +16,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.14",
     "@mui/material": "^5.14.14",
+    "@mui/x-data-grid": "^6.18.0",
     "next": "13.5.6",
     "react": "^18",
     "react-dom": "^18"

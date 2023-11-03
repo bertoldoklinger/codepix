@@ -1,10 +1,10 @@
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs'; //reactive x
 
 interface Account {
   accountId: string;
   accountNumber: string;
   bankId: string;
-  bankname: string;
+  bankName: string;
   ownerName: string;
   createdAt: string;
 }

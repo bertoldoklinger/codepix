@@ -1,4 +1,3 @@
-import { BankAccount } from 'src/bank-accounts/entities/bank-account.entity';
 import {
   Column,
   CreateDateColumn,
@@ -7,6 +6,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { BankAccount } from '../../bank-accounts/entities/bank-account.entity';
 
 export enum PixKeyKind {
   cpf = 'cpf',
@@ -17,10 +17,13 @@ export enum PixKeyKind {
 export class PixKey {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+
   @Column()
   kind: PixKeyKind;
+
   @Column({ unique: true })
   key: string;
+
   @Column()
   bank_account_id: string;
 
